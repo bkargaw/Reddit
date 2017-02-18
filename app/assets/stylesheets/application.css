@@ -21,3 +21,11 @@ footer {
 footer > form {
   padding: 0 1em 0 0;
 }
+
+header {
+  display: flex;
+}
+
+header > form {
+  padding: 0 1em 0 0;
+}

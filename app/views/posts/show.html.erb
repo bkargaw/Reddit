@@ -14,8 +14,6 @@
   <% end %>
 </ul>
 
-
-
 <% content_for :footer do %>
   <% if current_user == @post.author %>
     <%= button_to "edit post", edit_post_url(@post), method: :get %>
