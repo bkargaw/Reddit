@@ -1,0 +1,23 @@
+<h2><%= @post.title %></h2>
+<h3>By: <%= @post.author.username %></h3>
+<% if @post.url %>
+<h4><%= @post.url  %></h4>
+<% end %>
+<% if @post.content %>
+<h6><%= @post.content  %></h6>
+<% end %>
+
+<p>Subs:</p>
+<ul>
+  <% @post.subs.each do |this_sub| %>
+  <li><%= link_to this_sub.title, sub_url(this_sub) %></li>
+  <% end %>
+</ul>
+
+
+
+<% content_for :footer do %>
+  <% if current_user == @post.author %>
+    <%= button_to "edit post", edit_post_url(@post), method: :get %>
+  <% end %>
+<% end %>

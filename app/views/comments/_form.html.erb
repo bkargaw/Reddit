@@ -1,0 +1,10 @@
+<% action = (@comment.persisted? ? "update" : "create") %>
+<% method = (@comment.persisted? ? :patch : :post) %>
+<%  %>
+<%= form_for :comment, url: { action: action }, method: method do |f| %>
+  <%= f.hidden_field :parent_comment_id, value: %>
+  Content: <%= f.text_field :content %><br>
+  <%= f.submit %>
+<% end %>
+
+....parent

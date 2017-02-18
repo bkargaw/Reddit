@@ -1,0 +1,21 @@
+<h2><%= @sub.title  %></h2>
+<h4><%= @sub.description  %></h4>
+<h6>moderator: <%= @sub.moderator.username %></h6>
+
+<ul>
+  <%  @sub.posts.each do |post| %>
+    <li><%= link_to post.title, post_url(post) %></li>
+  <% end %>
+</ul>
+
+<% content_for :footer do %>
+  <br>
+    <%= button_to "back to subs", subs_url, method: :get %>
+    <% if logged_in? %>
+      <%= button_to 'add post', new_post_url(sub_id: @sub.id), method: :get %>
+    <% end %>
+    <% if current_user ==  @sub.moderator%>
+        <%= button_to "edit sub", edit_sub_url(@sub), method: :get %>
+        <%= button_to "delete sub", sub_url(@sub), method: :delete %>
+    <% end %>
+<% end %>

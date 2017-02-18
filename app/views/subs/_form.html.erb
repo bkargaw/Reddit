@@ -1,0 +1,8 @@
+<% action = (@sub.persisted? ? "update" : "create") %>
+<% method = (@sub.persisted? ? :patch : :post) %>
+
+<%= form_for :sub, url: { action: action }, method: method do |f| %>
+  Title: <%= f.text_field :title %><br>
+  Description: <%= f.text_area :description %><br>
+  <%= f.submit %>
+<% end %>

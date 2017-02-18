@@ -1,0 +1,14 @@
+<h2>Index here</h2>
+
+<ul>
+<% @subs.each do |this_sub| %>
+  <li><%= link_to this_sub.title, sub_url(this_sub) %></li>
+<% end %>
+</ul>
+
+<% content_for :footer do %>
+  <% if logged_in? %>
+    <%= button_to "add sub", new_sub_url, method: :get %>
+    <%= button_to "new post", new_post_url, method: :get %>
+  <% end %>
+<% end %>

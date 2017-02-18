@@ -1,0 +1,9 @@
+<h2>New Sub</h2>
+
+<%= render "form" %>
+
+<% content_for :footer do %>
+  <br>
+    <%= button_to "back to subs", subs_url, method: :get %>
+
+<% end %>

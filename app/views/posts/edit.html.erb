@@ -1,0 +1,9 @@
+<h2>Edit <%= @post.title %></h2>
+
+<%= render "form" %>
+
+<% content_for :footer do %>
+<% @my_subs.each do |my_sub| %>
+  <%= button_to my_sub.title, sub_url(my_sub), method: :get %>
+<% end %>
+<% end %>
